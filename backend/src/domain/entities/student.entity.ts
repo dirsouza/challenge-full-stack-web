@@ -48,10 +48,4 @@ export class Student extends BaseEntity {
     name: 'updated_at',
   })
   updatedAt: Date;
-
-  @DeleteDateColumn({
-    type: 'timestamp',
-    name: 'deleted_at',
-  })
-  deletedAt: Date;
 }

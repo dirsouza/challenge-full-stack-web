@@ -1,4 +1,5 @@
 import { ValueTransformer } from 'typeorm';
+import { isCPF } from 'brazilian-values';
 
 export const transformerCpf: ValueTransformer = {
   from: (cpf: string) => {
@@ -7,3 +8,5 @@ export const transformerCpf: ValueTransformer = {
   },
   to: (cpf: string) => cpf,
 }
+
+export const validCpf = (cpf: string): boolean => isCPF(cpf);
