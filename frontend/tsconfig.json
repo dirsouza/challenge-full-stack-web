@@ -17,8 +17,14 @@
       "jest"
     ],
     "paths": {
-      "@/*": [
-        "src/*"
+      "App/*": [
+        "src/app/*"
+      ],
+      "Domain/*": [
+        "src/domains/*"
+      ],
+      "Support/*": [
+        "src/support/*"
       ]
     },
     "lib": [
