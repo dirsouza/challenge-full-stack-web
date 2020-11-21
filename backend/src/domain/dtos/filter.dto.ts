@@ -5,6 +5,8 @@ export class FilterDto {
   @IsOptional()
   @IsNotEmpty()
   @MaxLength(100)
-  @ApiProperty()
+  @ApiProperty({
+    required: false,
+  })
   search: string;
 }
