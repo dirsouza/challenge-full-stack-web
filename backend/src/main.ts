@@ -11,9 +11,12 @@ async function bootstrap() {
   apiServer(app);
   swaggerServer(app);
 
-  await app.listen(apiConfig.port);
+  const { host, port, prefix: apiPrefix } = apiConfig;
+  const { prefix: swaggerPrefix } = swaggerConfig;
 
-  logger.debug(`Appliation listening on: http://${ apiConfig.host }:${ apiConfig.port }/${ apiConfig.prefix }`);
-  logger.debug(`Appliation listening on: http://${ apiConfig.host }:${ apiConfig.port }/${ swaggerConfig.prefix }`);
+  await app.listen(port);
+
+  logger.debug(`Appliation listening on: http://${ host }:${ port }/${ apiPrefix }`);
+  logger.debug(`Appliation listening on: http://${ host }:${ port }/${ swaggerPrefix }`);
 }
 bootstrap();
