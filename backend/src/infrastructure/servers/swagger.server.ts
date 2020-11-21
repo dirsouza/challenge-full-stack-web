@@ -1,6 +1,6 @@
 import { INestApplication } from '@nestjs/common';
 import { SwaggerModule, DocumentBuilder } from '@nestjs/swagger';
-import config from 'config';
+import * as config from 'config';
 
 export interface ISwaggerConfig {
   title: string;

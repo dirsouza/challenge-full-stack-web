@@ -1,7 +1,7 @@
 import { INestApplication } from '@nestjs/common';
-import bodyParser from 'body-parser';
-import compression from 'compression';
-import config from 'config';
+import * as bodyParser from 'body-parser';
+import * as compression from 'compression';
+import * as config from 'config';
 
 export interface IApiConfig {
   host: string;
