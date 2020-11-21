@@ -4,8 +4,8 @@ server:
   prefix: api/v1
 
 swagger:
-  title: API RESTfull
-  description: API RESTfull
+  title: API RESTfull Student
+  description: API RESTfull Student Registration
   version: 0.0.1
   prefix: api/doc
 
