@@ -1,7 +1,7 @@
 import { NestFactory } from '@nestjs/core';
 import { Logger } from '@nestjs/common';
 import { AppModule } from 'Infrastructure/modules';
-import { apiServer, swaggerServer, apiConfig, swaggerConfig } from 'Infrastructure/server';
+import { apiServer, swaggerServer, apiConfig, swaggerConfig } from 'Infrastructure/servers';
 
 async function bootstrap() {
   const logger = new Logger('bootstrap');
