@@ -9,9 +9,6 @@ export default {
   moduleNameMapper: {
     '^@/(.*)$': '<rootDir>/src/$1',
     '^@test/(.*)$': '<rootDir>/tests/unit/$1',
-    'App/(.*)$': '<rootDir>/src/app/$1',
-    'Domain/(.*)$': '<rootDir>/src/domains/$1',
-    'Support/(.*)$': '<rootDir>/src/support/$1',
   },
   collectCoverage: true,
   coverageReporters: [
