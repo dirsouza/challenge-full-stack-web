@@ -14,17 +14,12 @@
     "baseUrl": ".",
     "types": [
       "webpack-env",
-      "jest"
+      "jest",
+      "vuetify"
     ],
     "paths": {
-      "App/*": [
-        "src/app/*"
-      ],
-      "Domain/*": [
-        "src/domains/*"
-      ],
-      "Support/*": [
-        "src/support/*"
+      "@/*": [
+        "src/*"
       ]
     },
     "lib": [
