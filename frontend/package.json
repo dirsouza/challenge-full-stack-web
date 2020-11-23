@@ -10,14 +10,23 @@
   },
   "dependencies": {
     "@mdi/font": "^5.8.55",
+    "axios": "^0.21.0",
+    "brazilian-values": "^0.10.1",
     "core-js": "^3.6.5",
+    "sweetalert2": "^10.10.1",
+    "vee-validate": "^3.4.5",
     "vue": "^2.6.11",
     "vue-class-component": "^7.2.3",
+    "vue-loading-overlay": "^3.4.2",
     "vue-property-decorator": "^8.4.2",
     "vue-router": "^3.2.0",
+    "vue-sweetalert2": "^4.1.1",
+    "vue-the-mask": "^0.11.1",
+    "vue-typed-mixins": "^0.2.0",
     "vuetify": "^2.2.11"
   },
   "devDependencies": {
+    "@types/axios": "^0.14.0",
     "@types/jest": "^24.0.19",
     "@typescript-eslint/eslint-plugin": "^2.33.0",
     "@typescript-eslint/parser": "^2.33.0",
