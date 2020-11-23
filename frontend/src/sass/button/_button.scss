@@ -1,0 +1,7 @@
+.v-application {
+  .v-btn {
+    &--outlined {
+      box-shadow: $btn-box-shadow !important;
+    }
+  }
+}

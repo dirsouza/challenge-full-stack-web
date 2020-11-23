@@ -1,0 +1,9 @@
+.v-card {
+  &__actions {
+    .v-btn {
+      &.v-btn {
+        padding: $btn-padding;
+      }
+    }
+  }
+}
