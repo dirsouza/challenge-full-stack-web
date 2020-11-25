@@ -8,6 +8,7 @@
   >
     <template v-slot:activator="{ on, attrs }">
       <v-btn
+        ref="btnShow"
         color="primary"
         dark
         v-bind="attrs"
@@ -20,7 +21,6 @@
     <validation-observer
       ref="form"
       tag="form"
-      vid="studentForm"
       v-slot="{ handleSubmit, invalid }"
     >
       <v-card>
@@ -170,4 +170,98 @@
   </v-dialog>
 </template>
 
-<script lang="ts" src="./FormDialog.ts"></script>
+<script lang="ts">
+import Vue, { PropOptions } from 'vue';
+import removeFormatNumber from '@/support/common/filters/RemoveFormatNumber';
+import { IStudent, TStudentCreate, TStudentUpdate } from '@/support/types';
+
+type TForm = {
+  name: string | null;
+  email: string | null;
+  ra: number | null;
+  cpf: string | null;
+}
+
+export default Vue.extend({
+  name: 'FormDialog',
+
+  props: {
+    close: {
+      type: Boolean as () => boolean,
+      required: false,
+    } as PropOptions,
+
+    studentData: {
+      type: Object as () => IStudent,
+      required: false,
+    } as PropOptions,
+  },
+
+  data: () => ({
+    dialog: false as boolean,
+
+    key: 0 as number,
+
+    form: {
+      name: null,
+      email: null,
+      ra: null,
+      cpf: null,
+    } as TForm,
+  }),
+
+  watch: {
+    close(value: boolean) {
+      if (value) {
+        this.closeForm();
+      }
+    },
+
+    studentData(student: IStudent) {
+      if (Object.keys(student).length) {
+        this.form = student;
+        this.key += 1;
+        this.dialog = true;
+      }
+    },
+  },
+
+  methods: {
+    registerStudent() {
+      const payload = {
+        ...this.form,
+        ra: Number(this.form.ra),
+        cpf: removeFormatNumber(this.form.cpf as string),
+      } as TStudentCreate;
+
+      this.$emit('register:data', payload);
+    },
+
+    updateStudent() {
+      const payload = {
+        name: this.form.name,
+        email: this.form.email,
+      } as TStudentUpdate;
+
+      this.$emit('update:data', payload);
+    },
+
+    closeForm() {
+      (this.$refs.form as any).reset();
+      this.form = {
+        name: null,
+        email: null,
+        ra: null,
+        cpf: null,
+      } as TForm;
+      this.key += 1;
+      this.dialog = !this.dialog;
+
+      if (Object.keys(this.studentData).length) {
+        this.$emit('update:clear', true);
+      }
+    },
+  },
+});
+
+</script>

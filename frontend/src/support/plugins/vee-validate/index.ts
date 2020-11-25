@@ -1,4 +1,7 @@
-import { extend, localize } from 'vee-validate';
+import Vue from 'vue';
+import {
+  extend, localize, ValidationObserver, ValidationProvider,
+} from 'vee-validate';
 
 import ptBR from 'vee-validate/dist/locale/pt_BR.json';
 import * as rules from 'vee-validate/dist/rules';
@@ -12,3 +15,6 @@ for (const [rule, validation] of Object.entries(Object.assign(rules, customRules
     ...validation,
   });
 }
+
+Vue.component('validation-observer', ValidationObserver);
+Vue.component('validation-provider', ValidationProvider);
