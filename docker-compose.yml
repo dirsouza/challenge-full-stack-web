@@ -1,6 +1,14 @@
 version: "3"
 
 services:
+  grupo_a-app:
+    build:
+      context: ./frontend
+    ports:
+      - $APP_PORT:8080
+    depends_on:
+      - grupo_a-api
+
   grupo_a-api:
     build:
       context: ./backend
